@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none" role="img" aria-label="RV Events">
+  <circle cx="40" cy="40" r="37" stroke="#d4bc8e" stroke-width="1.15"/>
+  <circle cx="40" cy="40" r="33.75" stroke="#f3f0eb" stroke-width="0.4" opacity="0.28"/>
+  <g fill="#f3f0eb">
+    <!-- Classic editorial R -->
+    <path d="M21 55.5V24.8h13.1c6.55 0 10.55 3.2 10.55 8.2 0 3.55-1.85 6.15-5.15 7.35l7.05 15.15h-5.9L34.9 41.05H26.15V55.5H21Zm5.15-18.7h7.95c3.45 0 5.45-1.65 5.45-4.25s-2-4.2-5.45-4.2h-7.95v8.45Z"/>
+    <!-- Classic editorial V -->
+    <path d="M43.4 24.8h5.75L56.1 49.9l6.85-25.1H68.8L57.55 55.5h-4.15L43.4 24.8Z"/>
+  </g>
+  <path d="M27.5 59.2c6.2 2.35 14.2 2.35 20.4 0" stroke="#b08d57" stroke-width="1.15" stroke-linecap="round"/>
+</svg>

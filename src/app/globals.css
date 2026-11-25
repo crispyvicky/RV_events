@@ -1,19 +1,126 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-display);
+  --color-ink: #0c0c0c;
+  --color-ink-soft: #1a1a1a;
+  --color-fog: #f3f0eb;
+  --color-fog-muted: #c8c2b8;
+  --color-stone: #8a847a;
+  --color-accent: #b08d57;
+  --color-accent-soft: #d4bc8e;
+  --color-line: rgba(243, 240, 235, 0.14);
+}
+
+:root {
+  --bg: #0c0c0c;
+  --fg: #f3f0eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body), Georgia, serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-
-.input-style {
-  @apply w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-400 outline-none;
+::selection {
+  background: color-mix(in oklab, var(--color-accent) 45%, transparent);
+  color: white;
 }
 
-.error-text {
-  @apply text-red-500 text-sm mt-1;
+a {
+  text-decoration: none;
+}
+
+/* Public site links inherit page color; admin sets its own */
+body:not(.admin-app) a {
+  color: inherit;
+}
+
+.font-display {
+  font-family: var(--font-display), "Times New Roman", serif;
+}
+
+.font-body {
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.input-field {
+  @apply w-full bg-transparent border border-[var(--color-line)] px-4 py-3 text-[var(--color-fog)] outline-none transition focus:border-[var(--color-accent)];
+}
+
+.label-field {
+  @apply mb-2 block text-xs uppercase tracking-[0.22em] text-[var(--color-stone)];
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 bg-[var(--color-fog)] px-7 py-3 text-xs font-medium uppercase tracking-[0.22em] transition hover:bg-white;
+  color: var(--color-ink) !important;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 border border-[var(--color-line)] px-7 py-3 text-xs font-medium uppercase tracking-[0.22em] transition hover:border-[var(--color-fog-muted)];
+  color: var(--color-fog) !important;
+}
+
+.section-pad {
+  @apply px-6 py-24 md:px-10 md:py-32 lg:px-16;
+}
+
+.will-change-transform {
+  will-change: transform;
+}
+
+/* Premium hover underline for editorial links */
+.btn-primary,
+.btn-ghost {
+  position: relative;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+}
+
+.btn-ghost:hover {
+  transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+html.has-custom-cursor,
+html.has-custom-cursor * {
+  cursor: none !important;
+}
+
+::view-transition-old(event-hero),
+::view-transition-new(event-hero) {
+  animation-duration: 0.7s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.admin-input {
+  @apply w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm text-zinc-900 outline-none focus:border-zinc-800;
+}
+
+.admin-label {
+  @apply mb-1 block text-xs font-medium uppercase tracking-wide text-zinc-500;
 }

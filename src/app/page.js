@@ -1,22 +1,39 @@
-import Features from "@/components/Features";
-import Hero from "@/components/Hero";
-import HowItWorks from "@/components/HowItWorks";
-import Newsletter from "@/components/Newsletter";
-import RecentEvents from "@/components/RecentEvents";
-import Stats from "@/components/Stats";
-import Testimonials from "@/components/Testimonials";
+import HomeExperience from "@/components/site/HomeExperience";
+import { SITE } from "@/lib/constants";
+import { getProjects, getServices } from "@/lib/data";
+import { pageMeta, faqJsonLd } from "@/lib/seo";
 
+export const metadata = pageMeta({
+  title: null,
+  description: SITE.description,
+  path: "/",
+});
 
-export default function Home() {
+const faqs = [
+  {
+    q: "What cities does RV EVENTS serve?",
+    a: "We provide full-service event management across Hyderabad and Kakinada, with destination experiences available on request.",
+  },
+  {
+    q: "What kinds of events do you manage?",
+    a: "Weddings, corporate gatherings, product launches, social celebrations, destination experiences, and end-to-end production design.",
+  },
+  {
+    q: "How do I get a quotation?",
+    a: "Share your event details through our Get Quote form. Our team prepares a tailored quotation with line items and GST.",
+  },
+];
+
+export default async function HomePage() {
+  const [services, projects] = await Promise.all([getServices(), getProjects()]);
+
   return (
     <>
-      <Hero />
-      <RecentEvents />
-      <HowItWorks />
-      <Features />
-      <Stats />
-      <Testimonials />
-      <Newsletter />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd(faqs)) }}
+      />
+      <HomeExperience services={services} projects={projects} faqs={faqs} />
     </>
   );
 }
