@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import { PLACEHOLDERS } from "@/lib/constants";
 import { getGsap } from "@/lib/gsap-client";
 import MagneticButton from "@/components/effects/MagneticButton";
-import SiteLogo from "@/components/site/SiteLogo";
 import ParallaxMedia from "./ParallaxMedia";
 
 export default function Hero() {
@@ -18,16 +17,10 @@ export default function Hero() {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
       tl.fromTo(
-        ".hero-brand",
-        { autoAlpha: 0, y: 40 },
-        { autoAlpha: 1, y: 0, duration: 1.2 }
+        ".hero-line",
+        { autoAlpha: 0, y: 56 },
+        { autoAlpha: 1, y: 0, duration: 1.2, stagger: 0.12 }
       )
-        .fromTo(
-          ".hero-line",
-          { autoAlpha: 0, y: 56 },
-          { autoAlpha: 1, y: 0, duration: 1.2, stagger: 0.12 },
-          "-=0.7"
-        )
         .fromTo(
           ".hero-cta",
           { autoAlpha: 0, y: 24 },
@@ -84,10 +77,7 @@ export default function Hero() {
       <div className="hero-veil absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/20" />
 
       <div className="hero-copy relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-24 pt-40 md:px-10 md:pb-32 lg:px-16">
-        <div className="hero-brand">
-          <SiteLogo size="hero" href={null} />
-        </div>
-        <h1 className="mt-8 max-w-4xl">
+        <h1 className="max-w-4xl">
           <span className="hero-line block font-display text-3xl leading-[1.12] text-[var(--color-fog)] md:text-5xl lg:text-6xl">
             We don&apos;t start with what&apos;s typical.
           </span>

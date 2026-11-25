@@ -151,7 +151,22 @@ export default function LeadForm({ mode = "contact" }) {
               type="date"
               value={form.eventDate}
               onChange={update}
-              className="input-field"
+              onClick={(e) => {
+                try {
+                  e.currentTarget.showPicker?.();
+                } catch {
+                  /* unsupported browsers fall back to native */
+                }
+              }}
+              onFocus={(e) => {
+                try {
+                  e.currentTarget.showPicker?.();
+                } catch {
+                  /* unsupported browsers fall back to native */
+                }
+              }}
+              className="input-field input-date"
+              min={new Date().toISOString().slice(0, 10)}
             />
           </div>
           <div>

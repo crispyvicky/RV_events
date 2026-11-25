@@ -38,38 +38,60 @@ export default function AboutPage() {
       </section>
 
       <section className="section-pad">
-        <div className="mx-auto grid max-w-[1400px] gap-14 lg:grid-cols-2">
+        <div className="mx-auto grid max-w-[1400px] items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
           <Reveal>
-            <p className="font-body text-base leading-relaxed text-[var(--color-fog-muted)] md:text-lg">
-              {SITE.name} brings creative direction, production expertise, and
-              hospitality thinking together. We work as both imaginative partner
-              and execution lead — balancing ambition with budget discipline,
-              atmosphere with logistics.
+            <div className="relative aspect-[4/5] overflow-hidden bg-[var(--color-ink-soft)]">
+              <Image
+                src="/brand/team/maha.png"
+                alt="Maha, Founder of RV EVENTS"
+                fill
+                className="object-cover object-top"
+                sizes="(max-width: 1024px) 100vw, 42vw"
+                priority
+              />
+            </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="font-body text-xs uppercase tracking-[0.28em] text-[var(--color-accent-soft)]">
+              Founder
             </p>
-            <p className="mt-6 font-body text-base leading-relaxed text-[var(--color-fog-muted)] md:text-lg">
+            <h2 className="mt-4 font-display text-5xl md:text-6xl">Maha</h2>
+            <p className="mt-3 font-body text-sm uppercase tracking-[0.2em] text-[var(--color-stone)]">
+              Founder &amp; Lead Planner
+            </p>
+            <p className="mt-8 max-w-xl font-body text-base leading-relaxed text-[var(--color-fog-muted)] md:text-lg">
+              {SITE.name} brings creative direction, production expertise, and
+              hospitality thinking together. Under Maha&apos;s lead, we work as
+              both imaginative partner and execution lead — balancing ambition
+              with budget discipline, atmosphere with logistics.
+            </p>
+            <p className="mt-6 max-w-xl font-body text-base leading-relaxed text-[var(--color-fog-muted)] md:text-lg">
               Whether you are planning a wedding weekend, a corporate launch, or
               a private milestone, we shape the experience from concept through
               the final cue.
             </p>
+            <Link href="/contact" className="btn-ghost mt-10 inline-flex">
+              Get in touch
+            </Link>
           </Reveal>
-          <Reveal delay={0.1}>
-            <div className="border border-[var(--color-line)] p-8 md:p-10">
-              <p className="font-body text-xs uppercase tracking-[0.22em] text-[var(--color-stone)]">
-                Presence
-              </p>
-              <ul className="mt-6 space-y-5">
-                {SITE.cities.map((city) => (
-                  <li key={city}>
-                    <p className="font-display text-3xl">{city}</p>
-                    <p className="mt-1 font-body text-sm text-[var(--color-fog-muted)]">
-                      Full-service planning &amp; production
-                    </p>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/contact" className="btn-ghost mt-10 inline-flex">
-                Get in touch
-              </Link>
+        </div>
+      </section>
+
+      <section className="section-pad !pt-0">
+        <div className="mx-auto max-w-[1400px]">
+          <Reveal>
+            <p className="font-body text-xs uppercase tracking-[0.22em] text-[var(--color-stone)]">
+              Presence
+            </p>
+            <div className="mt-8 grid gap-10 sm:grid-cols-2">
+              {SITE.cities.map((city) => (
+                <div key={city}>
+                  <p className="font-display text-4xl md:text-5xl">{city}</p>
+                  <p className="mt-2 font-body text-sm text-[var(--color-fog-muted)]">
+                    Full-service planning &amp; production
+                  </p>
+                </div>
+              ))}
             </div>
           </Reveal>
         </div>

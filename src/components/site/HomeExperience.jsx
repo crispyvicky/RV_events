@@ -43,8 +43,8 @@ export default function HomeExperience({ services, projects, faqs }) {
       </section>
 
       <ImageExpand
-        src={PLACEHOLDERS.wedding}
-        title="Garden Wedding, Hyderabad"
+        src={PLACEHOLDERS.expand}
+        title="Celebration, fully realized"
         subtitle="Florals, light, and hospitality woven into one evening — from first look to last toast."
         label="Scroll-triggered showcase"
       />
@@ -67,8 +67,8 @@ export default function HomeExperience({ services, projects, faqs }) {
       />
 
       <BeforeAfter
-        beforeSrc={PLACEHOLDERS.destination}
-        afterSrc={PLACEHOLDERS.production}
+        beforeSrc={PLACEHOLDERS.before}
+        afterSrc={PLACEHOLDERS.after}
         beforeLabel="Raw venue"
         afterLabel="RV EVENTS production"
         title="Before & after the build"
@@ -102,7 +102,7 @@ export default function HomeExperience({ services, projects, faqs }) {
 
       <section className="relative overflow-hidden py-32 md:py-40">
         <ParallaxMedia
-          src={PLACEHOLDERS.corporate}
+          src={PLACEHOLDERS.cta}
           alt="Begin with RV EVENTS"
           className="absolute inset-0 h-full w-full"
           speed={10}

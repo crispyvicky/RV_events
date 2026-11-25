@@ -32,6 +32,25 @@ export async function POST() {
     await db.collection("services").insertMany(
       DEFAULT_SERVICES.map((s) => ({ ...s, createdAt: new Date(), updatedAt: new Date() }))
     );
+  } else {
+    for (const s of DEFAULT_SERVICES) {
+      await db.collection("services").updateOne(
+        { slug: s.slug },
+        {
+          $set: {
+            title: s.title,
+            subtitle: s.subtitle,
+            category: s.category,
+            excerpt: s.excerpt,
+            description: s.description,
+            image: s.image,
+            featured: s.featured,
+            order: s.order,
+            updatedAt: new Date(),
+          },
+        }
+      );
+    }
   }
 
   const projectCount = await db.collection("projects").countDocuments();
@@ -39,6 +58,26 @@ export async function POST() {
     await db.collection("projects").insertMany(
       DEFAULT_PROJECTS.map((p) => ({ ...p, createdAt: new Date(), updatedAt: new Date() }))
     );
+  } else {
+    for (const p of DEFAULT_PROJECTS) {
+      await db.collection("projects").updateOne(
+        { slug: p.slug },
+        {
+          $set: {
+            title: p.title,
+            category: p.category,
+            city: p.city,
+            excerpt: p.excerpt,
+            description: p.description,
+            image: p.image,
+            gallery: p.gallery,
+            featured: p.featured,
+            year: p.year,
+            updatedAt: new Date(),
+          },
+        }
+      );
+    }
   }
 
   await db.collection("quoteTemplates").deleteMany({});

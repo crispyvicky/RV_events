@@ -37,22 +37,34 @@ export const QUOTE_STATUSES = [
 
 export const LEAD_STATUSES = ["new", "contacted", "quoted", "won", "lost"];
 
-/** Swap-ready placeholder imagery — replace with real photos later (see ASSETS.md) */
+/** Unique Unsplash imagery — every key is a different photo (see ASSETS.md) */
+const img = (id, w = 1800) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
+
 export const PLACEHOLDERS = {
-  hero: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=2400&q=80",
-  wedding: "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=80",
-  corporate: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1800&q=80",
-  social: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1800&q=80",
-  destination: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80",
-  production: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1800&q=80",
-  about: "https://images.unsplash.com/photo-1478146896981-b80fe463b330?auto=format&fit=crop&w=1800&q=80",
+  hero: img("photo-1511795409834-ef04bbd61622", 2400),
+  wedding: img("photo-1519741497674-611481863552"),
+  corporate: img("photo-1540575467063-178a50c2df87"),
+  social: img("photo-1530103862676-de8c9debad1d"),
+  destination: img("photo-1500530855697-b586d89ba3ee"),
+  production: img("photo-1492684223066-81342ee5ff30"),
+  about: img("photo-1478146896981-b80fe463b330"),
+  expand: img("photo-1519167758481-83f29da8d0e0"),
+  before: img("photo-1414235077428-338989a2e8c0"),
+  after: img("photo-1555244162-803834f70033"),
+  cta: img("photo-1429962714451-bb934ecdc4ec"),
+  planning: img("photo-1460978812857-470ed1c77af0"),
   gallery: [
-    "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1400&q=80",
-    "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=80",
-    "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1400&q=80",
-    "https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1400&q=80",
-    "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1400&q=80",
-    "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1400&q=80",
+    img("photo-1511285560929-80b456fea0bc", 1400),
+    img("photo-1465495976277-4387d4b0b4c6", 1400),
+    img("photo-1505373877841-8d25f7d46678", 1400),
+    img("photo-1464366400600-7168b8af9bc3", 1400),
+    img("photo-1470229722913-7c0e2dbbafd3", 1400),
+    img("photo-1520854221256-17451cc330bf", 1400),
+    img("photo-1507504031003-b417219a0fdf", 1400),
+    img("photo-1533174072545-7a4b6ad7a6c3", 1400),
+    img("photo-1505236858219-8359eb29e329", 1400),
+    img("photo-1578662996442-48f60103fc96", 1400),
   ],
 };
 
@@ -131,7 +143,7 @@ export const DEFAULT_SERVICES = [
       "End-to-end event management — budgeting, vendors, timelines, and day-of orchestration.",
     description:
       "Engage us as your complete planning partner. We manage vendors, budgets, run-of-show, and on-site teams so you stay present for what matters.",
-    image: PLACEHOLDERS.about,
+    image: PLACEHOLDERS.planning,
     featured: false,
     order: 6,
   },

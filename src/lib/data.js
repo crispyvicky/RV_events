@@ -1,6 +1,8 @@
 import { DEFAULT_SERVICES, PLACEHOLDERS } from "./constants";
 import { getDb, hasMongoConfig } from "./mongodb";
 
+const G = PLACEHOLDERS.gallery;
+
 const DEFAULT_PROJECTS = [
   {
     slug: "hyderabad-garden-wedding",
@@ -10,8 +12,8 @@ const DEFAULT_PROJECTS = [
     excerpt: "An intimate evening ceremony under layered light and florals.",
     description:
       "A full-service wedding production spanning ceremony, reception, and guest hospitality — designed with a soft editorial palette.",
-    image: PLACEHOLDERS.gallery[0],
-    gallery: PLACEHOLDERS.gallery.slice(0, 4),
+    image: G[0],
+    gallery: [G[0], G[1], G[5], G[6]],
     featured: true,
     year: "2025",
   },
@@ -23,8 +25,8 @@ const DEFAULT_PROJECTS = [
     excerpt: "Immersive product reveal with stage design and guest flow.",
     description:
       "Creative direction and production for a corporate launch — narrative moments, VIP hospitality, and precise run-of-show.",
-    image: PLACEHOLDERS.corporate,
-    gallery: [PLACEHOLDERS.corporate, PLACEHOLDERS.production, PLACEHOLDERS.gallery[3]],
+    image: G[2],
+    gallery: [G[2], G[3], G[8]],
     featured: true,
     year: "2025",
   },
@@ -36,8 +38,8 @@ const DEFAULT_PROJECTS = [
     excerpt: "A milestone gathering shaped by coastal light and atmosphere.",
     description:
       "Private celebration with destination sensibility — venue styling, dining, and entertainment choreographed as one evening.",
-    image: PLACEHOLDERS.destination,
-    gallery: [PLACEHOLDERS.destination, PLACEHOLDERS.social, PLACEHOLDERS.gallery[2]],
+    image: G[9],
+    gallery: [G[9], G[4], G[7]],
     featured: true,
     year: "2024",
   },
@@ -49,8 +51,8 @@ const DEFAULT_PROJECTS = [
     excerpt: "Multi-day offsite with programming, travel, and hospitality.",
     description:
       "We managed location, sessions, dining, and evening experiences so leadership could focus on connection — not logistics.",
-    image: PLACEHOLDERS.gallery[4],
-    gallery: PLACEHOLDERS.gallery.slice(2, 6),
+    image: G[8],
+    gallery: [G[8], G[6], G[1], G[4]],
     featured: false,
     year: "2024",
   },
